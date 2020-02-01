@@ -59,14 +59,15 @@ options:
         required: False"""
 
 RETURN = r"""
-_raw:
+_list:
     description:
         - The JSON responses to `GET /secrets/{id} <https://updates.thycotic.net/secretserver/restapiguide/TokenAuth/#operation--secrets--id--get>`"""
 
 EXAMPLES = r"""
+---
 - hosts: localhost
   vars:
-      secret: "{{ lookup('tss', 1) | from_json }}"
+      secret: "{{ lookup('tss', 1) }}"
   tasks:
       - debug: msg="the password is {{ (secret['items'] | items2dict(key_name='slug', value_name='itemValue'))['password'] }}"
 """
@@ -112,7 +113,7 @@ class LookupModule(LookupBase):
             try:
                 id = int(term)
                 display.vvv(u"Secret Server lookup of Secret with ID %d" % id)
-                result.append(secret_server.get_secret(id))
+                result.append(secret_server.get_secret_json(id))
             except ValueError:
                 raise AnsibleOptionsError("Secret ID must be an integer")
             except SecretServerError as error:
