@@ -13,7 +13,7 @@ description:
       Server using token authentication with `username` and `password` on
       the REST API at `base_url`.
 requirements:
-    - tss-sdk-python
+    - python-tss-sdk
 options:
     _terms:
         description: the integer ID of the secret
@@ -81,7 +81,7 @@ try:
         SecretServerError,
     )
 except ImportError:
-    raise AnsibleError("tss-sdk-python must be installed to use this plugin")
+    raise AnsibleError("python-tss-sdk must be installed to use this plugin")
 
 from ansible.module_utils._text import to_native
 from ansible.utils.display import Display
