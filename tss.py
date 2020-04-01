@@ -6,10 +6,9 @@ __metaclass__ = type
 DOCUMENTATION = r"""
 lookup: tss
 author: Adam Migus (adam@migus.org)
-version_added: "2.9"
-short_description: get secrets from Thycotic Secret Server
+short_description: Get secrets from Thycotic Secret Server
 description:
-    - Uses The Thycotic Secret Server Python SDK to get Secrets from Secret
+    - Uses the Thycotic Secret Server Python SDK to get Secrets from Secret
       Server using token authentication with `username` and `password` on
       the REST API at `base_url`.
 requirements:
@@ -83,7 +82,6 @@ try:
 except ImportError:
     raise AnsibleError("python-tss-sdk must be installed to use this plugin")
 
-from ansible.module_utils._text import to_native
 from ansible.utils.display import Display
 from ansible.plugins.lookup import LookupBase
 
