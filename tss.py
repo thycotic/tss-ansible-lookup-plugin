@@ -102,9 +102,6 @@ class LookupModule(LookupBase):
             "api_path_uri": self.get_option("api_path_uri"),
             "token_path_uri": self.get_option("token_path_uri"),
         }
-
-        display.vvv("Secret Server parameters: %s" % server_parameters)
-
         secret_server = SecretServer(**server_parameters)
         result = []
 
