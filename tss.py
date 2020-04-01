@@ -13,7 +13,7 @@ description:
       Server using token authentication with `username` and `password` on
       the REST API at `base_url`.
 requirements:
-    - python-tss-sdk
+    - python-tss-sdk - https://pypi.org/project/python-tss-sdk/
 options:
     _terms:
         description: the integer ID of the secret
@@ -61,10 +61,10 @@ options:
 RETURN = r"""
 _list:
     description:
-        - The JSON responses to `GET /secrets/{id} <https://updates.thycotic.net/secretserver/restapiguide/TokenAuth/#operation--secrets--id--get>`"""
+        - The JSON responses to `GET /secrets/{id}`
+        - See https://updates.thycotic.net/secretserver/restapiguide/TokenAuth/#operation--secrets--id--get>"""
 
 EXAMPLES = r"""
----
 - hosts: localhost
   vars:
       secret: "{{ lookup('tss', 1) }}"
